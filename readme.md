@@ -17,3 +17,7 @@ What's more, the code of this project is well-organized. The entrance of this pr
 ## Waiting for your joining
 
 I guess this work is very promising to become a common tool for miscellaneous purposes, such as a Chat-GPT plugin, or an assistant for academic research. If you feel interested, you could download this work and do whatever you want, or consider to join me to construct some useful apps. The code is heavily commented and is ready for your study. Best wishes to you.
+
+## Demo
+This is a snapshot of this project to recursively summarize the content of the book ***Chimpanzee Politics*** in Chinese version.
+![image](https://user-images.githubusercontent.com/49633741/228145703-5b20c39e-119b-4af5-8327-060fa06e0712.png)

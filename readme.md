@@ -1,3 +1,5 @@
+English | [简体中文](https://github.com/waynia/epub_retrieval/blob/master/readme.zh-CN.md)
+
 ## Target of this project
 
 This demo project is aimed to parse personal e-book library using Open AI APIs. Up till now, limited by the time that I could spend on this spare-time work, I only finished the core part, which invokes the API to parse one book with .epub format in a given path, and output the recursive summary of the whole book. 

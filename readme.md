@@ -2,7 +2,7 @@ English | [简体中文](https://github.com/waynia/epub_retrieval/blob/master/re
 
 ## Target of this project
 
-This demo project is aimed to parse personal e-book library using Open AI APIs. Up till now, limited by the time that I could spend on this spare-time work, I only finished the core part, which invokes the API to parse one book with .epub format in a given path, and output the recursive summary of the whole book. 
+This demo project is aimed to parse personal e-book library using Open AI APIs. Its input is a epub format e-book, and its output is a .csv file with the summary of the segments as well as the main idea of the input book. Also, the functions in this project provides the search function based on embedding similarites in embedding_lib.py file. Up till now, limited by the time that I could spend on this spare-time work, I only finished the core part, which invokes the API to parse one book with .epub format in a given path, and output the recursive summary of the whole book. 
 
 The next part of this work, is to make it become a [Calibre e-book management application](https://calibre-ebook.com/) plugin, and help every one to get new ideas from their book collections. Also, if possible, to become an infrastructure to construct some specific-knowledge-based web apps.
 

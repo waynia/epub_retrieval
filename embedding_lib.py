@@ -33,13 +33,14 @@ def get_embedding(text: str, model: str) -> list[float]:
     return local_result["data"][0]["embedding"]
 
 
-#  f_name：待读取的csv文件名称。f_index：索引的表头名称（对应待读取csv文件第一行第一列）。
+#  f_name：待读取的csv文件名称
 #  输出变量为dict类型，包含str类型的索引，和float类型的list（在pandas中被称为series）。
-def load_embeddings(f_name: str, f_index: str) -> dict[str, list[float]]:
+def load_embeddings(f_name: str) -> dict[str, list[float]]:
     local_df = pd.read_csv(f_name, header=0)
+    f_index = local_df.columns[0]  # 读取csv文件第一列的列名（即：待读取csv文件第一行第一列）
     max_dim = max([int(c) for c in local_df.columns if c != f_index])
     return {
-        r.region: [r[str(d)] for d in range(max_dim + 1)] for _, r in local_df.iterrows()
+        r.name: [r[str(d)] for d in range(max_dim + 1)] for _, r in local_df.iterrows()
     }
 
 
@@ -71,6 +72,7 @@ def vector_similarity(x: list[float], y: list[float]) -> float:
 #  query：提交给openai的prompt内容。contexts：从csv中读取的所有提前准备好的prompt的embedding，作为投喂给openai的上下文。
 #  model：计算embedding所用到的openai模型。
 #  输出变量为dict类型，每行的float变量代表query与提前准备好的prompt的相似度，str变量是该行对应的索引，行数与contexts相等
+@retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(8))
 def embedding_relevance(query: str, contexts: dict[str, np.array], model: str) -> list[(float, str)]:
     query_embedding = get_embedding(query, model)
 
